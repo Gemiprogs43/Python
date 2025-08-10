@@ -4,18 +4,18 @@ Mainly use language - Python🐍
 
 🌟Features includes:
  🎮 Mini Games:
-      1.Math quiz game
-      2.Rock, Paper, Scissors
-      3.Guess the number
+ 1.Math quiz game
+ 2.Rock, Paper, Scissors
+ 3.Guess the number
 
-  📅Time & Date
-      Quickly get the current time and date.
+ 📅Time & Date
+  Quickly get the current time and date.
 
   🧠Random Facts
-      It shares a random facts about python
+   It shares a random facts about python
 
   🗣️User Interaction
-      Personalized conversation with chatbot
+   Personalized conversation with chatbot
 
 
 Example Conversation
