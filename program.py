@@ -29,7 +29,7 @@ import datetime
 joke_in_progress = False
 joke_answer = ""
 
-# === JOKES ===
+#JOKES
 def get_jokes():
     jokes = [
         ("Why do programmers prefer dark mode?", "Because light attracts bugs!"),
@@ -42,7 +42,7 @@ def get_jokes():
     ]
     return random.choice(jokes)
 
-# === FACTS ===
+#FACTS
 def get_facts():
     facts = [
         "Python is widely considered one of the easiest programming languages to learn.",
@@ -55,7 +55,7 @@ def get_facts():
     ]
     return random.choice(facts)
 
-# === HELP ===
+#HELP
 def help_topics():
     return (
         "Sure! What do you need help with?\n"
@@ -67,18 +67,18 @@ def help_topics():
         "5. Jokes"
     )
 
-# === TIME / DATE ===
+#TIME / DATE
 def get_current_time():
     return datetime.datetime.now().strftime("%H:%M:%S")
 
 def get_current_date():
     return datetime.datetime.now().strftime("%Y-%m-%d")
 
-# === ACTIVITY WRAPPER ===
+#ACTIVITY WRAPPER
 def wrap_up_activity(result):
     return f"{result}\n\nProgram complete. Returning to help section...\n\n{help_topics()}"
 
-# === GAMES ===
+# SIMPLE GAMES
 
 # Math Game
 def math_game():
@@ -86,44 +86,45 @@ def math_game():
     user_choice = random.choice(operations)
 
     if user_choice == '+':
-        num1 = random.randint(1, 10)
-        num2 = random.randint(1, 10)
+        num1 = random.randint(1, 100)
+        num2 = random.randint(1, 100)
         answer = num1 + num2
 
     elif user_choice == '-':
-        num1 = random.randint(1, 10)
+        num1 = random.randint(1, 100)
         num2 = random.randint(1, num1)
         answer = num1 - num2
 
     elif user_choice == '*':
-        num1 = random.randint(1, 10)
-        num2 = random.randint(1, 10)
+        num1 = random.randint(1, 100)
+        num2 = random.randint(1, 100)
         answer = num1 * num2
 
     elif user_choice == '/':
-        num2 = random.randint(1, 10)
-        answer = random.randint(1, 10)
+        num2 = random.randint(1, 100)
+        answer = random.randint(1, 100)
         num1 = answer * num2
         answer = num1 / num2
 
     else:
-        return "Invalid operation selected."
+        return "Invalid operation selected. Please try again."
 
-    print(f"Let's do a math problem: What is {num1} {user_choice} {num2}?")
+    print(f"Let's get started!: What is {num1} {user_choice} {num2}?")
+    
     user_answer = input("Your answer: ")
-
-    try:
-        user_answer = float(user_answer)
-        if round(user_answer, 2) == round(answer, 2):
-            return "Correct! Well done!"
-        else:
-            return f"Incorrect. The correct answer is {answer}."
-    except ValueError:
-        return "Please enter a valid number as your answer."
+    user_answer = float(user_answer)
+    
+    if round(user_answer, 2) == round(answer, 2):
+        return "Correct! Well done!"
+    else:
+        return f"Incorrect. The correct answer is {answer}."
+    
+    
 
 # Rock Paper Scissors
 def rock_paper_scissors():
-    print("Let's play Rock, Paper, Scissors!")
+    print("You selected Rock, Paper, Scissors!")
+    print("Let's play a game of Rock, Paper, Scissors!")
     print("You can type 'exit' or 'quit' to stop playing at any time.")
 
     choices = ["rock", "paper", "scissors"]
@@ -152,17 +153,18 @@ def rock_paper_scissors():
 
 # Guess the Number
 def guess_game():
+    print("Welcome to the Guess the Number Game!")
+    print("I have selected a number between 1 and 10. Can you guess it?")
     number = random.randint(1, 10)
-    try:
-        guess = int(input("Guess a number between 1 and 10: "))
-        if guess == number:
-            return "Congratulations! You guessed the right number!"
-        else:
-            return f"Sorry, the correct number was {number}."
-    except ValueError:
-        return "Please enter a valid number between 1 and 10."
+    
+    guess = int(input("Guess a number between 1 and 10: "))
+    
+    if guess == number:
+        return "Congratulations! You guessed the right number!"
+    else:
+        return f"Sorry, the correct number was {number}."
 
-# === PYTHON RESOURCES ===
+#PYTHON RESOURCES
 def python_resources():
     return (
         "Here are some great resources to learn Python:\n"
@@ -177,16 +179,13 @@ def python_resources():
         "9. Python Crash Course – Excellent beginner book"
     )
 
-# === MAIN CHATBOT FUNCTION ===
+#MAIN CHATBOT FUNCTION
 def main_chatBot(user_input, user_name=""):
     global joke_in_progress, joke_answer
     user_input = user_input.lower()
 
     if any(greeting in user_input for greeting in ["hello", "hi"]):
         return f"Hello {user_name}! How can I assist you today?"
-
-    elif "how are you" in user_input:
-        return "I don't have feelings, but I'm here to help! How can I assist you?"
 
     elif any(name_query in user_input for name_query in ["what is your name", "who are you"]):
         return "I am your virtual assistant. You can call me Chipee."
@@ -251,7 +250,7 @@ def main_chatBot(user_input, user_name=""):
     else:
         return "I'm not sure how to respond to that. Try typing 'help' to see what I can do."
 
-# === MAIN PROGRAM LOOP ===
+#MAIN PROGRAM LOOP
 if __name__ == "__main__":
     print("Virtual Assistant: Hello! I'm Chipee, your personal Virtual Assistant.")
     user_name = input("Virtual Assistant: What is your name? ")
